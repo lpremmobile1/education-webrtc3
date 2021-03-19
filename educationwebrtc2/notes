@@ -1,0 +1,21 @@
+todo1 improve auth - courses offered
+
+
+/****************************/
+proposed features
+/***************************/
+course content visibility w.r.t  
+i) global to course (additional state may be in order entity) 
+and ii)private to user
+
+/***************************/
+user's course join time (additional state may be in order entity)
+
+/**************************/
+
+
+
+/*****************************************************strategies*******************************************************/
+1) courses belong to application i.e. no account global courses
+2) courses belong to user i.e. teacher role account.
+/**********************************************************************************************************************/

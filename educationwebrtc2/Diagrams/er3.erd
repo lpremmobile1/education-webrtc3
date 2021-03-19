@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="er3.erd">
+	<entities>
+		<data-source id="h2_server-1754ea5445d-9d0b48b9bb6f09e">
+			<entity id="1" name="CONSUMER" fq-name="PUBLIC.CONSUMER" order="0" color-bg="115,210,22" x="540" y="470">
+				<path name="PUBLIC"/>
+			</entity>
+			<entity id="2" name="CONSUMER_CON_ADDRESSES" fq-name="PUBLIC.CONSUMER_CON_ADDRESSES" order="1" x="782" y="472">
+				<path name="PUBLIC"/>
+			</entity>
+			<entity id="3" name="CONSUMER_CON_CARDS" fq-name="PUBLIC.CONSUMER_CON_CARDS" order="2" x="524" y="347">
+				<path name="PUBLIC"/>
+			</entity>
+			<entity id="4" name="CONSUMER_CON_FILES" fq-name="PUBLIC.CONSUMER_CON_FILES" order="3" x="270" y="535">
+				<path name="PUBLIC"/>
+			</entity>
+			<entity id="5" name="CONSUMER_CON_PROFILEPICTURES" fq-name="PUBLIC.CONSUMER_CON_PROFILEPICTURES" order="4" x="525" y="758">
+				<path name="PUBLIC"/>
+			</entity>
+			<entity id="6" name="CON_ADDRESS" fq-name="PUBLIC.CON_ADDRESS" order="5" x="1041" y="360">
+				<path name="PUBLIC"/>
+			</entity>
+			<entity id="7" name="CON_CARD" fq-name="PUBLIC.CON_CARD" order="6" x="503" y="173">
+				<path name="PUBLIC"/>
+			</entity>
+			<entity id="8" name="CON_FILE" fq-name="PUBLIC.CON_FILE" order="7" x="60" y="516">
+				<path name="PUBLIC"/>
+			</entity>
+			<entity id="9" name="CON_PROFILEPICTURE" fq-name="PUBLIC.CON_PROFILEPICTURE" order="8" x="583" y="865">
+				<path name="PUBLIC"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="FKKOEP2U6GOWPPDGCSP1MAFPTLI" fq-name="PUBLIC.CONSUMER_CON_ADDRESSES.FKKOEP2U6GOWPPDGCSP1MAFPTLI" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="FKQC84ILPQQE8GJY4091HUB1WJP" fq-name="PUBLIC.CONSUMER_CON_CARDS.FKQC84ILPQQE8GJY4091HUB1WJP" type="fk" pk-ref="1" fk-ref="3"/>
+		<relation name="FKGOS9DTR5NR1UWTPU9X481PG8I" fq-name="PUBLIC.CONSUMER_CON_FILES.FKGOS9DTR5NR1UWTPU9X481PG8I" type="fk" pk-ref="1" fk-ref="4"/>
+		<relation name="FKACJJIBGUWU4YHSMUBF7IOKKYC" fq-name="PUBLIC.CONSUMER_CON_PROFILEPICTURES.FKACJJIBGUWU4YHSMUBF7IOKKYC" type="fk" pk-ref="1" fk-ref="5"/>
+		<relation name="FKP9Q4RUKG1MMFEQP9VJE36I7SE" fq-name="PUBLIC.CONSUMER_CON_ADDRESSES.FKP9Q4RUKG1MMFEQP9VJE36I7SE" type="fk" pk-ref="6" fk-ref="2"/>
+		<relation name="FKJCP3VJ4LSYFEFXOC7UMOBUGYQ" fq-name="PUBLIC.CONSUMER_CON_CARDS.FKJCP3VJ4LSYFEFXOC7UMOBUGYQ" type="fk" pk-ref="7" fk-ref="3"/>
+		<relation name="FK3WYFV1GNW3PBJBCOH4MLIKK1T" fq-name="PUBLIC.CONSUMER_CON_FILES.FK3WYFV1GNW3PBJBCOH4MLIKK1T" type="fk" pk-ref="8" fk-ref="4"/>
+		<relation name="FK3CAO7TXWW5SXM1KBA6GE3FEYY" fq-name="PUBLIC.CONSUMER_CON_PROFILEPICTURES.FK3CAO7TXWW5SXM1KBA6GE3FEYY" type="fk" pk-ref="9" fk-ref="5"/>
+	</relations>
+</diagram>
