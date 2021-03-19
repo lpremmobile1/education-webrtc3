@@ -61,12 +61,12 @@
     <div class="container d-flex justify-content-start">
     <div class="pe-5">
     <p>Local Video </p>
-    <video width="40vw;" height="40vh;"  id="localVideo" autoplay style="border-style: solid;border-color: gray;"></video> <br>
+    <video width="150px;" height="200px"  id="localVideo" autoplay style="border-style: solid;border-color: gray;"></video> <br>
     </div>
     
     <div>
     <p>Remote Video </p> 
-    <video width="40vw;" height="40vh;"  id="remoteVideo" autoplay style="border-style: solid;border-color: gray;"></video> <br>
+    <video width="150px;" height="200px"  id="remoteVideo" autoplay style="border-style: solid;border-color: gray;"></video> <br>
     </div>
     </div>
     
@@ -90,7 +90,25 @@ const sendChannel = localConnection.createDataChannel("sendChannel");
 	 sendChannel.onmessage =e => { console.log("Messsage from Other Peer(i.e. Peer B)."  + e.data );$("#receivedMessages").append("<span class=\"badge bg-primary\">Peer B</span> &nbsp;&nbsp; "+ e.data+"<br>");}
 	 sendChannel.onopen = e => console.log("open!!!!");
 	 sendChannel.onclose =e => console.log("closed!!!!!!");
+////////////////////////////start up code for video to remote location
+	 startUp();
+	 async function startUp(){
+		 //alert('hello');
+	 const constraints = {'video': true, 'audio': true};
+	 const localStream = await navigator.mediaDevices.getUserMedia(constraints);
+	 localStream.getTracks().forEach(track => {
+	 	localConnection.addTrack(track, localStream);
+	 });
+	 }
+	 ////////////////////////////remote stream receiving
+const remoteStream =new MediaStream();
+const remoteVideo = document.querySelector('#remoteVideo');
+remoteVideo.srcObject = remoteStream;
 
+localConnection.addEventListener('track', async (event) => {
+    remoteStream.addTrack(event.track, remoteStream);
+});
+	 ////////////////////////////////////////////////
 function generateAndStore(){
 	 localConnection.onicecandidate = e =>  {
 	 console.log(" NEW ice candidnat!! on localconnection reprinting SDP " );
@@ -136,24 +154,7 @@ input.addEventListener("keyup", function(event) {
     sendMessage();
   }
 });
-////////////////////////////start up code for video to remote location
-startUp();
-async function startUp(){
-const constraints = {'video': true, 'audio': true};
-const localStream = await navigator.mediaDevices.getUserMedia(constraints);
-localStream.getTracks().forEach(track => {
-	localConnection.addTrack(track, localStream);
-});
-}
-////////////////////////////remote stream
-const remoteStream =new MediaStream();
-const remoteVideo = document.querySelector('#remoteVideo');
-remoteVideo.srcObject = remoteStream;
 
-localConnection.addEventListener('track', async (event) => {
-    remoteStream.addTrack(event.track, remoteStream);
-});
-////////////////////////////////////////////////
 /*-------------------------------------------------Section 2-------------------------------------------------------*/
 function sendMessage(){
 	var message=document.getElementById("sendMessage").value;

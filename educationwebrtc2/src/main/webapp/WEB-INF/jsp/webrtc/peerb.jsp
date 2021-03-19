@@ -96,13 +96,14 @@ remoteConnection.ondatachannel= e => {
 }
 ////////////////////////////start up code for video to remote to remote location
 startUp();
-async function startUp(){
-const constraints = {'video': true, 'audio': true};
-const localStream = await navigator.mediaDevices.getUserMedia(constraints);
-localStream.getTracks().forEach(track => {
-	remoteConnection.addTrack(track, localStream);
-});
-}
+	 async function startUp(){
+		 //alert('hello');
+	 const constraints = {'video': true, 'audio': true};
+	 const localStream = await navigator.mediaDevices.getUserMedia(constraints);
+	 localStream.getTracks().forEach(track => {
+		 remoteConnection.addTrack(track, localStream);
+	 });
+	 }
 
 ////////////////////////////remote stream
 const remoteStream =new MediaStream();
